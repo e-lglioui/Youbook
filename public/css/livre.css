@@ -1,0 +1,148 @@
+/* Livre Form Styles */
+.create {
+    background-image: url('your-background-image.jpg'); /* Replace 'your-background-image.jpg' with the actual path to your background image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .container {
+        width: 100%;
+    }
+    
+    .card-deck {
+        display: flex;
+        justify-content: center;
+    }
+    
+    form {
+        width: 100%;
+        max-width: 400px;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 100px ;
+    }
+    
+    label {
+        font-size: 16px;
+        color: #333;
+        font-weight: bold;
+    }
+    
+    input,
+    select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        color: #495057;
+        transition: border-color 0.3s ease-in-out;
+    }
+    
+#resume {
+    resize: vertical;
+    min-height: 100px; 
+    max-height: 300px; 
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        color: #495057;
+        transition: border-color 0.3s ease-in-out;
+}
+
+#resume:focus {
+    border-color: #007bff; /* Couleur de la bordure lorsqu'il est en focus */
+}
+
+
+
+
+
+    input:focus,
+    select:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+    
+    button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 14px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+        font-weight: bold;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+
+.card-deck {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 100%;
+    max-width: 400px; /* Limit the maximum width of the form */
+    background-color: rgba(255, 255, 255, 0.9); /* Adjust the alpha value for background transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+label {
+    font-size: 16px; /* Slightly increase font size for better readability */
+    color: #333;
+    font-weight: bold; /* Make labels bold for better visibility */
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px; /* Increase padding for better input size */
+    margin-bottom: 20px; /* Increase margin for better spacing */
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    color: #495057;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box shadow on focus */
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 14px 24px; /* Increase padding for a more prominent button */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-weight: bold; /* Make button text bold for better visibility */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+

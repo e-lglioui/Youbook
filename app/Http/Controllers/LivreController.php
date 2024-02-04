@@ -1,82 +1,76 @@
 <?php
 
 namespace App\Http\Controllers;
-use  App\Models\Livre;
-
 
 use Illuminate\Http\Request;
+use App\Models\Livre;
 
 class LivreController extends Controller
 {
-  
-
-    private static function getData() {
-        return [
-            ['id' => 1, 'name' => 'La Boîte à Merveilles', 'auteur' => 'Ahmed Sefrioui'],
-            ['id' => 2, 'name' => 'L\'Étranger', 'auteur' => 'Albert Camus'],
-            ['id' => 3, 'name' => 'Les Misérables', 'auteur' => 'Victor Hugo'],
-            ['id' => 4, 'name' => 'Le Petit Prince', 'auteur' => 'Antoine de Saint-Exupéry'],
-            
-        ];
-    }
-
-
-
     public function index()
     {
         return view('livre.livre', [
             'livre' => Livre::all()
         ]);
     }
-    
-    
 
- //___________________________________________________________________________
     public function create()
     {
-
         return view('livre.create');
     }
 
-    //___________________________________________________________________________
     public function store(Request $request)
     {
-       $livre=new Livre();
-       $livre->nom= $request->input('nom');
-       $livre->auteur = $request->input('auteur');
-       $livre->save();
-       return redirect()->route('livre.index');
+        // $request->validate([
+        //     'nom' => 'required|string',
+        //     'auteur' => 'required|string',
+        //     'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validate image file types and size
+        //     'disponible' => 'boolean',
+        // ]);
+
+        $livre = new Livre();
+        $livre->nom = $request->input('nom');
+        $livre->auteur = $request->input('auteur');
+        $livre->quantite = $request->input('quantite');
+         $livre->resume = $request->input('resume');
+        $livre->disonible = $request->input('disonible', false);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $livre->image = 'images/' . $imageName;
+        }
+
+        $livre->save();
+        return redirect()->route('livre.index');
     }
 
-//___________________________________________________________________________
     public function show(string $id)
     {
-        $livre=self::getData();
-        $index=array_search($id,array_column($livre,'id'));
-        if($index==false){
+        $livre = Livre::find($id);
+    
+        if (!$livre) {
             abort(404);
         }
-        return view('livre.show',[
-            'livre'=>$livre[$index]
+    
+        return view('livre.show', [
+            'livre' => $livre
         ]);
-        
     }
+    
 
- //___________________________________________________________________________
     public function edit(string $id)
     {
         
     }
 
-//___________________________________________________________________________
     public function update(Request $request, string $id)
     {
-        
+      
     }
 
-//___________________________________________________________________________
     public function destroy(string $id)
     {
-        
+     
     }
 }

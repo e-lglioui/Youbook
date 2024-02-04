@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Livre extends Model
 {
-    protected $fillable = ['nom', 'auteur']; 
     use HasFactory;
+    protected $fillable = ['nom', 'auteur', 'disponible', 'image', 'resume'];
+    use HasFactory;
+    public function reservation()
+{
+    return $this->hasMany(Reservation::class);
+}
 }
