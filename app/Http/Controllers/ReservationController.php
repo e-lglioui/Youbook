@@ -6,26 +6,47 @@ use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
-    public function create()
+
+    public function index()
     {
-        return view('reservation');
+        return view('reservation.create');
     }
 
+    public function create()
+    {
+        return view('reservation.create');
+    }
+
+ 
     public function store(Request $request)
     {
-        // Validez les données du formulaire si nécessaire
-        // $request->validate([
-        //     'nom' => 'required|string',
-        //     'email' => 'required|email',
-        //     'date_reservation' => 'required|date',
-        // ]);
+        //
+    }
 
-        Reservation::create([
-            'nom' => $request->input('nom'),
-            'email' => $request->input('email'),
-            'date_reservation' => $request->input('date_reservation'),
-        ]);
+    public function show(string $id)
+    {
+        
+    }
 
-        return redirect()->route('reservation.create')->with('success', 'Réservation effectuée avec succès!');
+ 
+    public function edit(string $id)
+    {
+        
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

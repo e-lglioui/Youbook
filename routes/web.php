@@ -1,16 +1,26 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LivreController;
-use App\Http\Controllers\ReservationControlle;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\TestController;
 
-Route::get('/home', [HomeController::class,'index'])->name('home.index');
-Route::get('/login', [HomeController::class,'login'])->name('login');
-Route::resource('livre', LivreController::class);
+Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+Route::get('/test', [TestController::class, 'index']);
 
-Route::get('reservation', 'ReservationController@create')->name('reservation.create');
-Route::post('reservation', 'ReservationController@store')->name('reservation.store');
+Route::get('/reservation/create', [ReservationController::class, 'index']);
+
+Route::get('/login', [HomeController::class, 'login'])->name('login');
+
+// Route::resource('livre', LivreController::class);
+// Route::resource('reservation', ReservationController::class);
+
+// Route::get('reservations', [ReservationController , 'create'])->name('reser');
+
+// Route::get('/reservation/create', [ReservationController::class, 'create'])->name('reservation.create');
+
 
 
 // Route::get('/home/{$categorie?}/{$item?}', function ($categorie=null,$item=null)
