@@ -19,6 +19,9 @@
                 @else
                 <span class="badge badge-danger">Non disponible</span>
                 @endif
+            <button class="btn btn-blue">
+            <a href="{{ route('reservation.create', ['livre' => $livreItem['id']]) }}" class="btn btn-primary">Reserver</a>
+         </button>
             </div>
         </div>
         @endforeach

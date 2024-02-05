@@ -32,7 +32,11 @@ p {
     border-bottom: 1px solid #dee2e6;
     padding: 10px 0;
 }
-
+.show{
+    padding: 1rem;
+    width: 500px;
+    height: 500px;  
+}
 .navbar a {
     color: #343a40;
     text-decoration: none;

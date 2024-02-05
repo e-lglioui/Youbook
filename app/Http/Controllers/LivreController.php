@@ -61,16 +61,59 @@ class LivreController extends Controller
 
     public function edit(string $id)
     {
-        
+        $livre = Livre::find($id);
+    
+        if (!$livre) {
+            abort(404);
+        }
+    
+        return view('livre.edit', ['livre' => $livre]);
     }
-
+    
     public function update(Request $request, string $id)
     {
-      
+        $livre = Livre::find($id);
+    
+        if (!$livre) {
+            abort(404);
+        }
+        // $request->validate([
+        //     'nom' => 'required|string',
+        //     'auteur' => 'required|string',
+        //     'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //     'disponible' => 'boolean',
+        // ]);
+    
+        $livre->nom = $request->input('nom');
+        $livre->auteur = $request->input('auteur');
+        $livre->quantite = $request->input('quantite');
+        $livre->resume = $request->input('resume');
+        $livre->disonible = $request->input('disonible', false);
+    
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $livre->image = 'images/' . $imageName;
+        }
+    
+        $livre->save();
+        
+        return redirect()->route('livre.show', ['livre' => $livre->id]);
     }
+    
+
 
     public function destroy(string $id)
     {
-     
+        $livre = Livre::find($id);
+    
+        if (!$livre) {
+            abort(404);
+        }
+    
+        $livre->delete();
+    
+        return redirect()->route('livre.index');
     }
 }

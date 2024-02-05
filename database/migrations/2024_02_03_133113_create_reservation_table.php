@@ -4,29 +4,26 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateReservationsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
-        Schema::create('reservation', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('livre_id')->constrained();
-            $table->foreignId('etudiant_id')->constrained();
             $table->date('date_reservation');
-            $table->date('date_retour');
+            $table->date('date_retour')->nullable();
             $table->boolean('retourne')->default(false);
+            $table->unsignedBigInteger('livre_id');
+            $table->unsignedBigInteger('etudiant_id');
             $table->timestamps();
+
+            $table->foreign('livre_id')->references('id')->on('livres')->onDelete('cascade');
+            $table->foreign('etudiant_id')->references('id')->on('etudiants')->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('reservation');
+        Schema::dropIfExists('reservations');
     }
-};
+}

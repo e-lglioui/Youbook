@@ -27,11 +27,20 @@
                     <a href="{{ route('livre.index') }}" class="text-gray-600 hover:text-gray-800">Livres
                         Disponibles</a>
                     <a href="{{ route('login') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Login</a>
+                    <a href="{{ route('livre.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Ajouter</a>
                 </div>
             </div>
         </nav>
     </div>
     @yield('content')
+
+
+
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
