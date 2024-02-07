@@ -22,7 +22,7 @@
                 <input type="date" name="date_reservation" class="form-control" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Réserver</button>
+            <button type="submit" name="submit" class="btn btn-primary">Réserver</button>
         </form>
     </div>
 @endsection

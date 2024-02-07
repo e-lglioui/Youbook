@@ -27,3 +27,4 @@ class CreateReservationsTable extends Migration
         Schema::dropIfExists('reservations');
     }
 }
+
