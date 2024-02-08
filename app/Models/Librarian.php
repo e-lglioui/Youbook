@@ -3,9 +3,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bibliothecaire extends Model
+class Librarian extends Model
 {
-    protected $fillable = ['nom', 'prenom', 'email'];
+    protected $fillable = ['nom', 'prenom', 'email','password'];
 
     public function livres()
     {

@@ -3,9 +3,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Etudiant extends Model
+class Student extends Model
 {
-    protected $fillable = ['nom', 'prenom', 'email'];
+    protected $fillable = ['nom', 'prenom', 'email','password'];
 
     public function reservation()
     {
