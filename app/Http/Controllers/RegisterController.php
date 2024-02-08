@@ -11,7 +11,6 @@ $prenom=$request->input('last_name');
 $email=$request->input('email');
 $password=$request->input('password');
 $expectedEmailPattern = "/^" . preg_quote($nom, '/') . preg_quote($prenom, '/') . "@youbook\.com$/";
-
 if (preg_match($expectedEmailPattern,$email)) {
 
   $user=new Librarian;
@@ -19,14 +18,27 @@ if (preg_match($expectedEmailPattern,$email)) {
    
     $user=new Student;
 }
+//$emailUnique=$this->email($email);
+//$user->email =$emailUnique;
+$user->email =$email;
 $user->nom = $nom;
 $user->prenom = $prenom;
-$user->email =$email;
 $user->password =$password;
 $user->save();
 return redirect()->route('login');
 }
 
+//email unique
+// public function email(string $imail)
+// {
+//     $imailEtu = Student::find($imail);
+//     $imailStaf = Librarian::find($imail);
+//     if (!$imailStaf && $imailEtu ) {
+//         return $imail;
+//     }else{
+//         return redirect()->route('login');
+//     }
+// }
 
 
 }
