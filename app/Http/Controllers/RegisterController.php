@@ -23,7 +23,7 @@ if (preg_match($expectedEmailPattern,$email)) {
 $user->email =$email;
 $user->nom = $nom;
 $user->prenom = $prenom;
-$user->password =$password;
+$user->password = Hash::make($password);
 $user->save();
 return redirect()->route('login');
 }

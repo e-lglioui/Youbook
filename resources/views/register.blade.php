@@ -22,7 +22,7 @@
                 <input type="password" id="password" name="password" required>
             </div>
             <div class="form-group">
-                <button type="submit">Register</button>
+                <button type="submit" name="submit">Register</button>
             </div>
         </form>
     </div>
