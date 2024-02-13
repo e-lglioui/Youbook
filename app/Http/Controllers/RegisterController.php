@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash; 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Student;
 use App\Models\Librarian ;
 
@@ -25,6 +27,8 @@ $user->nom = $nom;
 $user->prenom = $prenom;
 $user->password = Hash::make($password);
 $user->save();
+Auth::login($user);
+ $request->session()->put('user', $user);
 return redirect()->route('login');
 }
 

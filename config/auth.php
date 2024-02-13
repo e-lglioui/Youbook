@@ -64,12 +64,22 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'students' => [  // Utilisez une clé différente, par exemple, 'students'
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class,
+        ],
+        'librarians' => [  // Utilisez une clé différente, par exemple, 'librarians'
+            'driver' => 'eloquent',
+            'model' => App\Models\Librarian::class,
+        ],
+    ],
+    
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-    ],
+  
 
     /*
     |--------------------------------------------------------------------------
