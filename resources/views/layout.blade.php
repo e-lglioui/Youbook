@@ -22,25 +22,35 @@
     <div class="relative py-4 px-6">
         <nav class="navbar">
             <div class="container mx-auto flex justify-between items-center py-4">
-                <div class="flex items-center space-x-4">
-                    <a href="{{ route('home.index') }}" class="text-2xl font-bold text-gray-800">Library</a>
-                    <a href="{{ route('livre.index') }}" class="text-gray-600 hover:text-gray-800">Livres
-                        Disponibles</a>
-                    <a href="{{ route('login') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Login</a>
-                    <a href="{{ route('livre.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Ajouter</a>
-                </div>
-            </div>
+
+<div class="flex items-center space-x-4">
+    <a href="{{ route('home.index') }}" class="text-2xl font-bold text-gray-800">Library</a>
+    <a href="{{ route('livre.index') }}" class="text-gray-600 hover:text-gray-800">Livres Disponibles</a>
+
+    @guest
+        <a href="{{ route('login') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Login</a>
+    @else
+        @if(Auth::user() instanceof \App\Models\Librarian)
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Logout</button>
+                <a href="{{ route('livre.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Ajouter</a>
+            </form>
+        @else
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Logout</button>
+            </form>
+        @endif
+    @endguest
+</div>
+
+</div>
+      </div>
         </nav>
     </div>
     @yield('content')
 
-
-
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 

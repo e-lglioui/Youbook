@@ -17,7 +17,7 @@ class LoginController extends Controller
     
         if ($user && password_verify($password, $user->password)) {
             Auth::login($user);
-    
+            $request->session()->put('user', $user);
             return redirect()->intended('/livre'); 
         }
     
@@ -34,10 +34,4 @@ class LoginController extends Controller
     }
     
 
-    public function logout()
-    {
-        Auth::logout();
-
-        return redirect()->route('login');
-    }
 }

@@ -17,6 +17,6 @@
                 <button type="submit" name="submit">Login</button>
             </div>
         </form>
+        <a href="{{route('register') }}">register </a>
     </div>
-</div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus impedit perspiciatis numquam aliquid possimus provident nostrum nulla beatae illum. Sapiente.
-    @endsection
+</div>

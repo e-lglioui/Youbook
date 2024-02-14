@@ -6,6 +6,11 @@ use App\Models\Livre;
 
 class LivreController extends Controller
 {
+
+    public function __construct()
+{
+        $this->middleware('admin')->except(['index','show']);
+}
     public function index()
     {
         return view('livre.livre', [

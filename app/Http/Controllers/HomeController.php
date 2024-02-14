@@ -18,5 +18,16 @@ class HomeController extends Controller
     {
         return view('register');
     }
+
+    //if (Auth::check()) {
+    // $user = Auth::user();
+
+    // if ($user instanceof \App\Models\Student) {
+  
+    // } elseif ($user instanceof \App\Models\Librarian) {
+ 
+    // }
+//}
+
     
 }
